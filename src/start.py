@@ -1,5 +1,4 @@
 import requests
-from time import sleep
 import datetime
 from datetime import datetime
 
@@ -8,10 +7,10 @@ from urllib.parse import urlparse
 
 # Fin imports
 
-def status(url):
+def status(url, nombre):
     url_request = requests.get(url)
     dominio = urlparse(url).netloc
-    output = dominio + ': ' + str(url_request.status_code)
+    output = nombre + ': ' + dominio + ': ' + str(url_request.status_code)
     return output
 
 
@@ -31,4 +30,7 @@ list_urls = open(r"urls.txt", 'r')
 urls_n = list(list_urls)
 urls = [url.rstrip('\n') for url in urls_n]
 for url in urls:
-    print(status(url))
+    url = url.rstrip('\n')
+    nombre, url = url.split()
+
+    print(status(url, nombre))
