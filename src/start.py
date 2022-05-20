@@ -7,6 +7,16 @@ from urllib.parse import urlparse
 
 # Fin imports
 
+e = datetime.now()
+print()
+print ('Starting DDNS Webcalls')
+print ("Current date and time = %s" % e)
+print ("Today's date:  = %s/%s/%s" % (e.day, e.month, e.year))
+print ("The time is now: = %s:%s:%s" % (e.hour, e.minute, e.second))
+
+print()
+
+
 def status(url, nombre):
     url_request = requests.get(url)
     dominio = urlparse(url).netloc
@@ -21,6 +31,7 @@ def status(url, nombre):
 
 ip = requests.get('https://api.ipify.org').text
 print(f'La ip externa actual es: {ip}')
+print()
 
 # Fin prints inicio
 
