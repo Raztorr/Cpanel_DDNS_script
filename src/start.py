@@ -30,7 +30,7 @@ def status(url, nombre):
 # Inicio Prints de inicio
 
 ip = requests.get('https://api.ipify.org').text
-print(f'La ip externa actual es: {ip}')
+print(f'Current public ip: {ip}')
 print()
 
 # Fin prints inicio
@@ -43,5 +43,5 @@ urls = [url.rstrip('\n') for url in urls_n]
 for url in urls:
     url = url.rstrip('\n')
     nombre, url = url.split()
-
     print(status(url, nombre))
+list_urls.close()
